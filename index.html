@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <title>Title of the document</title>
+     
+    </head>
+
+    <body>
+            <div id="app">
+                    {{ message }}
+            </div>
+
+            <div id="app-2">
+                <span v-bind:title="message">
+                    Hover
+                </span>
+            </div>
+
+            <input type="text" id="app-3" v-bind:value="message">
+            
+            <div id="app-4">
+                    <ol>
+                      <li v-for="todo in todos">
+                        {{ todo.text }}
+                      </li>
+                    </ol>
+            </div>
+
+
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            }
+        })   
+
+        var app2 = new Vue({
+            el: '#app-2',
+            data: {
+                message: 'You loaded this page on ' + new Date().toLocaleString()
+            }
+        })   
+
+        var app3 = new Vue({
+            el: '#app-3',
+            data: {
+                message: 'Maot ka talaga wtf'
+            }
+        })   
+
+        var app4 = new Vue({
+            el: '#app-4',
+            data: {
+                todos:[
+                    {text: 'Maot'},
+                    {text: 'ka'},
+                    {text: 'NatNat'}
+                ],
+                message: 'You loaded this page on ' + new Date().toLocaleString()
+            }
+        })   
+
+    </script>
+
+
+</html>
