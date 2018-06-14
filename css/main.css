@@ -1,0 +1,14 @@
+
+
+.available span{
+    background:green;
+}
+
+.notavailable{
+    background:red;
+}
+
+.nearby span:after{
+    content:"nearby";
+    margin-left:10px;
+}

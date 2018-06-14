@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <title>Title of the document</title>
-     
+         <title>View Tutorial</title>
+         <link href="css/main.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -24,46 +24,103 @@
                         {{ todo.text }}
                       </li>
                     </ol>
+                    {{message}}
             </div>
 
+            <div id="app-5">
+                <span v-if="seen">Maot ka</span>
+            </div>
+
+            <div id="app-6">
+                <p>{{ message }}</p>
+                <button v-on:click="reverseMessage">Reverse Message</button>
+            </div>
+
+            <div id="app-7">
+                <p>{{ message }}</p>
+                <input type="text" name="tako" v-model:value="message" />
+            </div>
+
+            
+            <div id="app-8">
+                <p>{{ message }}</p>
+                <input type="button" v-on:click="test" value="click me" />
+            </div>
+
+            <div id="app-9">
+                <div>
+                    This Age: {{age}}
+                    <br>
+                    <input type="button" value="add" v-on:click="add"></button>
+                    <br>
+                    <input type="button" value="sub" v-on:click="sub"></button>
+                    <br>
+                    <input type="button" value="add 10" v-on:click="addV(10)"></button>
+                    <br>
+                    <input type="button" value="sub 10" v-on:click="subV(10)"></button>
+                </div>
+
+                <div id="canvas" v-on:mousemove="updateXY" style="width:600px;padding:200px 20px;text-align:center;border:4px solid #333;">
+                    {{x}},{{y}}
+                </div>
+
+               {{mensahe}}
+               keyup
+               <input type="text" v-on:keyup="keyUp"/>
+               keyupenter
+               <input type="text" v-on:keyup.enter="keyUpEnter"/>
+                
+               <br>
+               <div>
+                  <input type="text" v-model.number="value1"/> <div v-if="value1 != 0">{{value1}}</div> 
+
+                  <input type="text" v-model.number="value2" /> <div v-if="value2 != 0">{{value2}}</div> 
+
+                  <input type="button" value="add" @click="addValue"/> <div v-if="result != 0">{{result}}</div> 
+               </div>
+
+               <br>
+
+               <div>
+                   <h1>Dynamic CSS</h1>
+                   <h2>Example 1</h2>
+                   <div @click="changeStatus" v-bind:class="{available: !available}">
+                         <span>Example 2</span>
+                   </div>
+           
+               </div>
+
+            </div>
+
+            <div id="app-10">
+                <ul>
+                    <li v-for="(character, index) in Characters">
+                            {{index}}.{{character}}
+                    </li>
+
+                </ul>
+
+                <ul>
+                    Elements of Character
+                    <li v-for="(character, index) in Cwskills">
+                        {{index}}.{{ character.name }} skill:
+                        {{ character.skill }}
+                    </li>
+                </ul>
+                <ul></ul>
+                <template v-for="character in Cwskills">
+                    <div v-for="(val,key) in character">
+                        <p>{{ key }} - {{ val }}</p>
+                    </div>
+                </template>
+            </div>
 
     </body>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                message: 'Hello Vue!'
-            }
-        })   
 
-        var app2 = new Vue({
-            el: '#app-2',
-            data: {
-                message: 'You loaded this page on ' + new Date().toLocaleString()
-            }
-        })   
+    <!-- <script src="/scripts/vue.js"></script>     -->
 
-        var app3 = new Vue({
-            el: '#app-3',
-            data: {
-                message: 'Maot ka talaga wtf'
-            }
-        })   
-
-        var app4 = new Vue({
-            el: '#app-4',
-            data: {
-                todos:[
-                    {text: 'Maot'},
-                    {text: 'ka'},
-                    {text: 'NatNat'}
-                ],
-                message: 'You loaded this page on ' + new Date().toLocaleString()
-            }
-        })   
-
-    </script>
+    <script src="js/main.js"></script>
 
 
 </html>
